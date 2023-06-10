@@ -10,13 +10,13 @@ export const PRIME = "prime";
 
 export const i18nMap = {
   en_US: {
-    next_epi: "Next Up",
+    next_epi: "Next Episode",
     skip_intro: "Skip Intro",
     skip_recap: "Skip Recap",
     skip_ads: "Skip",
   },
   en_GB: {
-    next_epi: "Next Up",
+    next_epi: "Next Episode",
     skip_intro: "Skip Intro",
     skip_recap: "Skip Recap",
     skip_ads: "Skip",
