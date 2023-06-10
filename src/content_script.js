@@ -42,33 +42,33 @@ async function skipNetflixAndPrime() {
       await setInnerText(domNode, type, LOADING_TEXT);
       domNode.click();
 
-      let response;
-      try {
-        response = await getCountryAndState();
-        response = await response.json();
-      } catch (err) {
-        const errObj = {
-          message: err.message,
-          errCode: response ? response.status : REQUEST_BLOCKED,
-        };
-        // errorTrack(errObj, "COUNTRY_API_FUNC");
-      }
+      // let response;
+      // try {
+      //   response = await getCountryAndState();
+      //   response = await response.json();
+      // } catch (err) {
+      //   const errObj = {
+      //     message: err.message,
+      //     errCode: response ? response.status : REQUEST_BLOCKED,
+      //   };
+      //   // errorTrack(errObj, "COUNTRY_API_FUNC");
+      // }
 
-      const countryName = response
-        ? response.country_name
-          ? response.country_name
-          : COUNTRY_API_FAILED
-        : REQUEST_BLOCKED;
-      const countryCode = response
-        ? response.country_code
-          ? response.country_code
-          : COUNTRY_API_FAILED
-        : REQUEST_BLOCKED;
-      const city = response
-        ? response.city
-          ? response.city
-          : COUNTRY_API_FAILED
-        : REQUEST_BLOCKED;
+      // const countryName = response
+      //   ? response.country_name
+      //     ? response.country_name
+      //     : COUNTRY_API_FAILED
+      //   : REQUEST_BLOCKED;
+      // const countryCode = response
+      //   ? response.country_code
+      //     ? response.country_code
+      //     : COUNTRY_API_FAILED
+      //   : REQUEST_BLOCKED;
+      // const city = response
+      //   ? response.city
+      //     ? response.city
+      //     : COUNTRY_API_FAILED
+      //   : REQUEST_BLOCKED;
 
       // const data = {
       //   event: "Skipped",
@@ -88,7 +88,7 @@ async function skipNetflixAndPrime() {
       //     ...rest,
       //   },
       // };
-
+      // console.log(data);
       // sendAnalytics(data);
     }
   } catch (err) {

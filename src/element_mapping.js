@@ -12,6 +12,20 @@ const locale = memoizedLocale("locale");
 
 export const elementMapping = [
   {
+    type: PRIME,
+    skipEvent: NEXT_EPISODE,
+    selector: `//*[text()="Next Episode"]`,
+    xpath: true,
+    ...translateLocale(NEXT_EPISODE),
+  },
+  {
+    type: PRIME,
+    skipEvent: SKIP_INTRO,
+    selector: `//*[text()="${translateLocale(SKIP_INTRO).translatedText}"]`,
+    xpath: true,
+    ...translateLocale(SKIP_INTRO),
+  },
+  {
     type: NETFLIX,
     selector: "[aria-label='Skip Intro']",
     locale,
@@ -50,13 +64,6 @@ export const elementMapping = [
     type: PRIME,
     selector: ".nextUpCard",
     locale,
-  },
-  {
-    type: PRIME,
-    skipEvent: SKIP_INTRO,
-    selector: `//*[text()="${translateLocale(SKIP_INTRO).translatedText}"]`,
-    xpath: true,
-    ...translateLocale(SKIP_INTRO),
   },
   {
     type: PRIME,

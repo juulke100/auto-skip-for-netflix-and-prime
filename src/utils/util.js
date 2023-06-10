@@ -89,9 +89,9 @@ function memoize(callback) {
 }
 
 // this is for just for analytics purpose
-export function getCountryAndState() {
-  return fetch("https://ipapi.co/json/");
-}
+// export function getCountryAndState() {
+//   return fetch("https://ipapi.co/json/");
+// }
 
 export function translateLocale(skipEventKey) {
   const fallbackLocale = "en_US";

@@ -1,3 +1,3 @@
-if (chrome.runtime) {
-  chrome.runtime.setUninstallURL("https://bit.ly/aspn_un");
-}
+// if (chrome.runtime) {
+//   chrome.runtime.setUninstallURL("https://bit.ly/aspn_un");
+// }
