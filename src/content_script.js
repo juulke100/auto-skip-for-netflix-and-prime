@@ -1,5 +1,5 @@
-import { secretKey } from "../secret_key";
-import { sendAnalytics, version, errorTrack } from "./utils/analytics";
+//import { secretKey } from "../secret_key";
+// import { sendAnalytics, version, errorTrack } from "./utils/analytics";
 import {
   sleep,
   fetchDomNode,
@@ -19,7 +19,7 @@ async function skipNetflixAndPrime() {
     try {
       skipButton = fetchDomNode(elementMapping);
     } catch (err) {
-      errorTrack(err, "FETCH_DOM_NODE");
+      // errorTrack(err, "FETCH_DOM_NODE");
     }
 
     if (!skipButton) {
@@ -42,57 +42,58 @@ async function skipNetflixAndPrime() {
       await setInnerText(domNode, type, LOADING_TEXT);
       domNode.click();
 
-      let response;
-      try {
-        response = await getCountryAndState();
-        response = await response.json();
-      } catch (err) {
-        const errObj = {
-          message: err.message,
-          errCode: response ? response.status : REQUEST_BLOCKED,
-        };
-        errorTrack(errObj, "COUNTRY_API_FUNC");
-      }
+      // let response;
+      // try {
+      //   response = await getCountryAndState();
+      //   response = await response.json();
+      // } catch (err) {
+      //   const errObj = {
+      //     message: err.message,
+      //     errCode: response ? response.status : REQUEST_BLOCKED,
+      //   };
+      //   // errorTrack(errObj, "COUNTRY_API_FUNC");
+      // }
 
-      const countryName = response
-        ? response.country_name
-          ? response.country_name
-          : COUNTRY_API_FAILED
-        : REQUEST_BLOCKED;
-      const countryCode = response
-        ? response.country_code
-          ? response.country_code
-          : COUNTRY_API_FAILED
-        : REQUEST_BLOCKED;
-      const city = response
-        ? response.city
-          ? response.city
-          : COUNTRY_API_FAILED
-        : REQUEST_BLOCKED;
+      // const countryName = response
+      //   ? response.country_name
+      //     ? response.country_name
+      //     : COUNTRY_API_FAILED
+      //   : REQUEST_BLOCKED;
+      // const countryCode = response
+      //   ? response.country_code
+      //     ? response.country_code
+      //     : COUNTRY_API_FAILED
+      //   : REQUEST_BLOCKED;
+      // const city = response
+      //   ? response.city
+      //     ? response.city
+      //     : COUNTRY_API_FAILED
+      //   : REQUEST_BLOCKED;
 
-      const data = {
-        event: "Skipped",
-        properties: {
-          token: secretKey,
-          extensionId:
-            chrome.runtime && chrome.runtime.id
-              ? chrome.runtime.id
-              : "ID_NOT_PRESENT",
-          type,
-          innerTextDatum: innerText,
-          countryName,
-          countryCode,
-          city,
-          version,
-          osLocale: window.navigator.language,
-          ...rest,
-        },
-      };
+      // const data = {
+      //   event: "Skipped",
+      //   properties: {
+      //     token: secretKey,
+      //     extensionId:
+      //       chrome.runtime && chrome.runtime.id
+      //         ? chrome.runtime.id
+      //         : "ID_NOT_PRESENT",
+      //     type,
+      //     innerTextDatum: innerText,
+      //     countryName,
+      //     countryCode,
+      //     city,
+      //     version,
+      //     osLocale: window.navigator.language,
+      //     ...rest,
+      //   },
+      // };
+      // console.log(data);
 
-      sendAnalytics(data);
+      // sendAnalytics(data);
     }
   } catch (err) {
-    errorTrack(err);
+    // errorTrack(err);
   }
 }
 
