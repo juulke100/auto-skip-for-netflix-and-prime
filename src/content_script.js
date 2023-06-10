@@ -70,26 +70,26 @@ async function skipNetflixAndPrime() {
           : COUNTRY_API_FAILED
         : REQUEST_BLOCKED;
 
-      const data = {
-        event: "Skipped",
-        properties: {
-          token: secretKey,
-          extensionId:
-            chrome.runtime && chrome.runtime.id
-              ? chrome.runtime.id
-              : "ID_NOT_PRESENT",
-          type,
-          innerTextDatum: innerText,
-          countryName,
-          countryCode,
-          city,
-          version,
-          osLocale: window.navigator.language,
-          ...rest,
-        },
-      };
+      // const data = {
+      //   event: "Skipped",
+      //   properties: {
+      //     token: secretKey,
+      //     extensionId:
+      //       chrome.runtime && chrome.runtime.id
+      //         ? chrome.runtime.id
+      //         : "ID_NOT_PRESENT",
+      //     type,
+      //     innerTextDatum: innerText,
+      //     countryName,
+      //     countryCode,
+      //     city,
+      //     version,
+      //     osLocale: window.navigator.language,
+      //     ...rest,
+      //   },
+      // };
 
-      sendAnalytics(data);
+      // sendAnalytics(data);
     }
   } catch (err) {
     errorTrack(err);
