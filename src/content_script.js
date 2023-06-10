@@ -88,7 +88,11 @@ async function skipNetflixAndPrime() {
       //     ...rest,
       //   },
       // };
+<<<<<<< HEAD
       // console.log(data);
+=======
+
+>>>>>>> b28302b0c2421584e90d44b0d68d4a0187442814
       // sendAnalytics(data);
     }
   } catch (err) {
